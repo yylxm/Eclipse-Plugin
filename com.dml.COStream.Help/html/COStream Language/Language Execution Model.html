@@ -1,0 +1,229 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	text-indent:24.1pt;
+	line-height:150%;
+	layout-grid-mode:char;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"页眉 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	text-indent:24.1pt;
+	line-height:150%;
+	layout-grid-mode:char;
+	border:none;
+	padding:0cm;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"页脚 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-indent:24.1pt;
+	line-height:150%;
+	layout-grid-mode:char;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+span.Char
+	{mso-style-name:"页眉 Char";
+	mso-style-link:页眉;}
+span.Char0
+	{mso-style-name:"页脚 Char";
+	mso-style-link:页脚;}
+p.SIGPLANParagraph, li.SIGPLANParagraph, div.SIGPLANParagraph
+	{mso-style-name:"SIGPLAN Paragraph";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	text-indent:12.0pt;
+	line-height:10.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	layout-grid:15.6pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=ZH-CN style='text-justify-trim:punctuation'>
+
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal style='text-indent:0cm'><b><span lang=EN-US
+style='font-size:16.0pt;line-height:150%'>COStream</span></b><b><span
+style='font-size:16.0pt;line-height:150%;font-family:宋体'>语言执行模型—</span></b><b><span
+lang=EN-US style='font-size:16.0pt;line-height:150%'>SDF</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.2pt'><span style='font-size:10.5pt;
+line-height:150%;font-family:宋体'>编程语言是底层程序执行模型的体现。</span><span lang=EN-US
+style='font-size:10.5pt;line-height:150%'>COStream</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>采用同步数据流模型</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>[1]</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>（</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>Synchronous Data Flow, SDF</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>）作为语言的执行模型。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span style='font-size:10.5pt;
+line-height:150%;font-family:宋体'>在同步数据流模型中，程序由一个带权重的有向图称为同步数据流图表示。图中，每个结点代表了一个计算任务，称为</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>actor</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>，每条边代表了生产者</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>actor</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>与消费者</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>actor</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>之间的数据流动，每条边上具有两个权值，分别代表生产者每次执行后生产数据的个数和消费者每次执行后消耗数据的个数。每个</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>actor</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>都是一个独立的计算单元，它有独立的指令流和地址空间，</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>actor</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>之间的数据流动通过</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>FIFO</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>队列来实现。</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>actor</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>的执行采用数据驱动的方式，只要</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>actor</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>的输入边有足够的数据消耗，它将不停地重复执行并产生数据到输出边。在静态同步数据流模型中，</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>actor</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>的每次执行消耗固定数目的数据，称为消耗率，同样地，</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>actor</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>每次执行产生固定数目的数据称为产生率。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span style='font-size:10.5pt;
+line-height:150%;font-family:宋体'>图</span><span lang=EN-US style='font-size:
+10.5pt;line-height:150%'>1</span><span style='font-size:10.5pt;line-height:
+150%;font-family:宋体'>例子表示数据流程序有</span><span lang=EN-US style='font-size:10.5pt;
+line-height:150%'>2</span><span style='font-size:10.5pt;line-height:150%;
+font-family:宋体'>个</span><span lang=EN-US style='font-size:10.5pt;line-height:
+150%'>actor</span><span style='font-size:10.5pt;line-height:150%;font-family:
+宋体'>，</span><span lang=EN-US style='font-size:10.5pt;line-height:150%'>actor A</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>和</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>actor B</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>都是独立的计算单元，</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>actor A</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>每次执行向队列缓存中产生</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>3</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>个数据，即生产速率为</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>3</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>，</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>actor B</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>每次执行从队列缓存中消耗</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>2</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>个数据，消耗速率为</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>2</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>。两个</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>actor</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>都采用数据驱动的方式执行，只要数据足够，自动开始执行。</span></p>
+
+<p class=SIGPLANParagraph align=center style='text-align:center;text-indent:
+24.0pt;line-height:normal'><span lang=EN-US><img width=79 height=153 id="图片 5"
+src="Language%20Execution%20Model.files/image001.png"></span><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:9.0pt;line-height:150%;font-family:宋体'>图</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%'>1</span><span
+style='font-size:9.0pt;line-height:150%;font-family:宋体'>：一个</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%'>SDF</span><span
+style='font-size:9.0pt;line-height:150%;font-family:宋体'>图例子</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=EN-US
+style='font-size:10.5pt;line-height:150%'>COStream</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>语言描述的数据流图是基于同步数据流图</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>SDF</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>的，两者的对应关系如下：</span></p>
+
+<p class=MsoNormal style='margin-left:48.0pt;text-indent:-24.0pt'><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-size:10.5pt;line-height:150%'>COStream</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>中的</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>operator</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>对应于</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>SDF</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>中的</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>actor</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>；</span></p>
+
+<p class=MsoNormal style='margin-left:48.0pt;text-indent:-24.0pt'><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-size:10.5pt;line-height:150%'>COStream</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>中的</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>stream</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>变量对应于</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>SDF</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>中的</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>FIFO</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>数据边；</span></p>
+
+<p class=MsoNormal style='margin-left:48.0pt;text-indent:-24.0pt'><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>3)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-size:10.5pt;line-height:150%'>COStream</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>中的数据流上的</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>window</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>大小对应于</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>SDF</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>中</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>actor</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>对数据的生产和消耗速率。</span></p>
+
+<p class=MsoNormal style='margin-left:48.0pt;text-indent:-24.0pt'><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>4)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-size:10.5pt;line-height:150%'>COStream</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>暂时不支持类似</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>StreamIt</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>中</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>feedback loop</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>的图</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>[2]</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>以及带有</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>delay</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>数据边的</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>SDF</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>图。</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><span style='font-size:
+10.5pt;line-height:150%;font-family:宋体'>此外，</span><span lang=EN-US
+style='font-size:10.5pt;line-height:150%'> COStream</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>还增加了对</span><span
+lang=EN-US style='font-size:10.5pt;line-height:150%'>sliding window</span><span
+style='font-size:10.5pt;line-height:150%;font-family:宋体'>的支持。</span></p>
+
+</div>
+
+</body>
+
+</html>

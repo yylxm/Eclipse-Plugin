@@ -1,0 +1,181 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"页眉 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	layout-grid-mode:char;
+	border:none;
+	padding:0cm;
+	font-size:9.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"页脚 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	layout-grid-mode:char;
+	font-size:9.0pt;
+	font-family:"Calibri",sans-serif;}
+span.Char
+	{mso-style-name:"页眉 Char";
+	mso-style-link:页眉;}
+span.Char0
+	{mso-style-name:"页脚 Char";
+	mso-style-link:页脚;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	layout-grid:15.6pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=ZH-CN style='text-justify-trim:punctuation'>
+
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal style='line-height:150%'><b><span style='font-size:16.0pt;
+line-height:150%;font-family:宋体'>外部</span></b><b><span lang=EN-US
+style='font-size:16.0pt;line-height:150%'>C++</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+style='font-family:宋体'>图</span><span lang=EN-US>1</span><span style='font-family:
+宋体'>给出了</span><span lang=EN-US>COStream</span><span style='font-family:宋体'>程序的编译流程，</span><span
+lang=EN-US>COStream</span><span style='font-family:宋体'>编译器是一个源到源的编译器，将</span><span
+lang=EN-US>COStream</span><span style='font-family:宋体'>程序根据目标平台编译成并行的目标代码（这里是</span><span
+lang=EN-US>C++</span><span style='font-family:宋体'>），然后调用底层的编译器生成最终的目标代码。</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=427 height=409 id="图片 14" src="External%20C%20Plus.files/image001.png"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+style='font-size:9.0pt;line-height:150%;font-family:宋体'>图</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%'>1</span><span
+style='font-size:9.0pt;line-height:150%;font-family:宋体'>：</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%'> COStream</span><span
+style='font-size:9.0pt;line-height:150%;font-family:宋体'>程序的编译流程</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>COStream</span><span style='font-family:宋体'>编译器支持两种方式的程序编译：独立模式和嵌入模式。以目标语言</span><span
+lang=EN-US>C++</span><span style='font-family:宋体'>为例，在独立模式中，</span><span
+lang=EN-US>COStream</span><span style='font-family:宋体'>程序被翻译成</span><span
+lang=EN-US>C++</span><span style='font-family:宋体'>最后编译成独立可执行的代码，无需其他干涉；在嵌入模式中，</span><span
+lang=EN-US>COStream</span><span style='font-family:宋体'>程序通过提供的外部接口被外部</span><span
+lang=EN-US>C++</span><span style='font-family:宋体'>程序调用，成为</span><span
+lang=EN-US>C++</span><span style='font-family:宋体'>的一个调用库，和外部</span><span
+lang=EN-US>C++</span><span style='font-family:宋体'>一起编译连接，只需设置编译选项，编译器便能对代码以不同的方式编译：</span><span
+lang=EN-US>embed</span><span style='font-family:宋体'>表示嵌入式调用，而</span><span
+lang=EN-US>normal</span><span style='font-family:宋体'>表示独立执行程序。这里对嵌入模式中</span><span
+lang=EN-US>COStream</span><span style='font-family:宋体'>编译器提供的接口进行简单介绍。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+style='font-family:宋体'>这里对嵌入模式中</span><span lang=EN-US>COStream</span><span
+style='font-family:宋体'>编译器提供的接口进行简单介绍。在编译生成的文件中，</span><span lang=EN-US>RunCOStream.h</span><span
+style='font-family:宋体'>文件定义了类</span><span lang=EN-US>RunCOStream</span><span
+style='font-family:宋体'>，类</span><span lang=EN-US>RunCOStream</span><span
+style='font-family:宋体'>包含在名字空间</span><span lang=EN-US>COStream</span><span
+style='font-family:宋体'>中，该类主要接口用法如下：</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>RunCOStream(stringstream&amp; instream);</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>RunCOStream(void* pSrc,int srcDataCount);</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>RunCOStream(string path)</span><span style='font-family:宋体'>；</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>void Run();</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>int GetOutputNum();</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>void* GetOutputArray();</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+style='font-family:宋体'>用户可以提供字符流、数组指针和数组长度以及文件路径以初始化</span><span lang=EN-US>RunCOStream</span><span
+style='font-family:宋体'>，调用该类的</span><span lang=EN-US>Run</span><span
+style='font-family:宋体'>方法将运行流程序，最后通过调用该类的</span><span lang=EN-US>GetOutputArray</span><span
+style='font-family:宋体'>方法取得输出数据数组指针，调用</span><span lang=EN-US>GetOutputNum</span><span
+style='font-family:宋体'>方法可以获得输出数据项个数；</span><span lang=EN-US>COStream.h</span><span
+style='font-family:宋体'>文件包含了该类的声明，用户只需包含该文件。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+style='font-family:宋体'>对</span><span lang=EN-US>COStream</span><span
+style='font-family:宋体'>的用法示例如下</span><span lang=EN-US>:</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>#include &quot;RunCOStream.h&quot;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>using namespace COStream;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>int main()</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>{</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double *p = new double[1379];</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RunCOStream
+costream = new RunCOStream(p,1379);</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; costream.Run();</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int retDataCount =
+costream.GetOutputNum();</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double* retArray =
+(double*)costream. GetOutputArray();</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>}</span></p>
+
+<p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

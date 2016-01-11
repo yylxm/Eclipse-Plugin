@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="COStream Guide">
+	<topic label="Introduction">
+    <anchor id="gettingstarted"/>
+ </topic>
+ <topic label="COStream Language">
+    <anchor id="tasks"/>
+ </topic>
+	<topic label="COStream Development Tool"  href="html/maintopic.html">
+    <anchor id="concepts"/> 
+	</topic>
+</toc>

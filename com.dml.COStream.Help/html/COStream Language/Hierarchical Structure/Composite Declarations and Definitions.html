@@ -1,0 +1,122 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"页眉 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	layout-grid-mode:char;
+	border:none;
+	padding:0cm;
+	font-size:9.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"页脚 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	layout-grid-mode:char;
+	font-size:9.0pt;
+	font-family:"Calibri",sans-serif;}
+span.Char
+	{mso-style-name:"页眉 Char";
+	mso-style-link:页眉;}
+span.Char0
+	{mso-style-name:"页脚 Char";
+	mso-style-link:页脚;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	layout-grid:15.6pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=ZH-CN style='text-justify-trim:punctuation'>
+
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+style='font-size:16.0pt;line-height:150%'>Composite</span></b><b><span
+style='font-size:16.0pt;line-height:150%;font-family:宋体'>内变量声明和定义语句列表</span></b></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+style='font-family:宋体'>声明和定义语句列表即</span><span lang=EN-US>declaration</span><span
+style='font-family:宋体'>部分为变量和类型声明部分，包括</span><span lang=EN-US>c</span><span
+style='font-family:宋体'>语言类型变量和</span><span lang=EN-US>stream</span><span
+style='font-family:宋体'>流类型变量。在</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>内部变量的使用满足</span><span lang=EN-US>c</span><span
+style='font-family:宋体'>语言变量使用的一般规则，即先定义后使用。</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+style='font-family:宋体'>如：</span><span lang=EN-US>int a,b,c;</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Float e=1.21;</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Stream&lt;int a,int
+b&gt;G;</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='line-height:150%'><b><span style='font-size:12.0pt;
+line-height:150%;font-family:宋体'>声明和定义语句列表内声明变量作用域</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.2pt;line-height:150%'><span
+style='font-family:宋体'>为整个</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>，它允许被</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>中定义的内置的</span><span lang=EN-US>operator</span><span
+style='font-family:宋体'>只读使用。</span></p>
+
+<p class=MsoNormal style='text-indent:21.2pt;line-height:150%'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='line-height:150%'><b><span style='font-size:12.0pt;
+line-height:150%;font-family:宋体'>声明和定义语句列表编译时行为限制</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.2pt;line-height:150%'><span
+style='font-family:宋体'>在当前声明的语句块中下的声明非数据流类型的变量必须是编译时可计算的常量值，否者编译出错；此外，</span><b><u><span
+lang=EN-US>composite</span></u></b><b><u><span style='font-family:宋体'>内部定义的内置的</span><span
+lang=EN-US>operator</span></u></b><b><u><span style='font-family:宋体'>在使用该处定义的非数据流类型的变量时只能进行读操作</span></u></b><span
+style='font-family:宋体'>。</span></p>
+
+<p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

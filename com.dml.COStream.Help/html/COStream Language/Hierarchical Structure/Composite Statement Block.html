@@ -1,0 +1,247 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"页眉 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	layout-grid-mode:char;
+	border:none;
+	padding:0cm;
+	font-size:9.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"页脚 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	layout-grid-mode:char;
+	font-size:9.0pt;
+	font-family:"Calibri",sans-serif;}
+span.Char
+	{mso-style-name:"页眉 Char";
+	mso-style-link:页眉;}
+span.Char0
+	{mso-style-name:"页脚 Char";
+	mso-style-link:页脚;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	layout-grid:15.6pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=ZH-CN style='text-justify-trim:punctuation'>
+
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+style='font-size:16.0pt;line-height:150%'>Composite</span></b><b><span
+style='font-size:16.0pt;line-height:150%;font-family:宋体'>内语句块</span></b></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+lang=EN-US>composite</span><span style='font-family:宋体'>内部的语句块即为</span><span
+lang=EN-US>costreamStmts</span><span style='font-family:宋体'>部分，它包括普通</span><span
+lang=EN-US>c</span><span style='font-family:宋体'>语句、</span><span lang=EN-US>operator</span><span
+style='font-family:宋体'>定义、</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>调用以及</span><span lang=EN-US>splitjion</span><span
+style='font-family:宋体'>和</span><span lang=EN-US>pipeline</span><span
+style='font-family:宋体'>等特殊</span><span lang=EN-US>operator</span><span
+style='font-family:宋体'>定义。</span><span lang=EN-US>costreamStmts</span><span
+style='font-family:宋体'>部分控制各个</span><span lang=EN-US>operator</span><span
+style='font-family:宋体'>之间的连接，通过控制连接方式从而构造数据流图。</span></p>
+
+<p class=MsoNormal style='margin-left:42.0pt;line-height:150%;layout-grid-mode:
+char'><b><span lang=EN-US>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-left:-.05pt;text-indent:-.05pt;line-height:
+150%;layout-grid-mode:char'><b><span lang=EN-US style='font-size:12.0pt;
+line-height:150%'>operator</span></b><b><span style='font-size:12.0pt;
+line-height:150%;font-family:宋体'>定义</span></b></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+lang=EN-US>operator</span><span style='font-family:宋体'>定义</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+style='font-size:12.0pt;line-height:150%'>composite</span></b><b><span
+style='font-size:12.0pt;line-height:150%;font-family:宋体'>调用</span></b></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+lang=EN-US>COStream</span><span style='font-family:宋体'>支持层次性流图的构造，因此，在</span><span
+lang=EN-US>composite</span><span style='font-family:宋体'>内部可以调用其他</span><span
+lang=EN-US>composite</span><span style='font-family:宋体'>。</span><span
+lang=EN-US>Composite</span><span style='font-family:宋体'>只能进行非递归的调用。具体的调用方式如下：</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+lang=EN-US>int a=…</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+lang=EN-US>int b=…</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+lang=EN-US>stream&lt;int x&gt;P,Q,O1;</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+lang=EN-US>stream&lt;float x&gt;O2;</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+lang=EN-US>(O1, O2)=COM(P,Q)(a,b);</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+style='font-family:宋体'>这里</span><span lang=EN-US>P</span><span
+style='font-family:宋体'>、</span><span lang=EN-US>Q</span><span style='font-family:
+宋体'>、</span><span lang=EN-US>O1</span><span style='font-family:宋体'>和</span><span
+lang=EN-US>O2</span><span style='font-family:宋体'>都是数据流</span><span lang=EN-US>stream</span><span
+style='font-family:宋体'>变量；</span><span lang=EN-US>a,b</span><span
+style='font-family:宋体'>为实参。因此</span><span lang=EN-US>composite COM</span><span
+style='font-family:宋体'>是一个有</span><span lang=EN-US>2</span><span
+style='font-family:宋体'>个输入流，</span><span lang=EN-US>2</span><span
+style='font-family:宋体'>个输出流同时带有</span><span lang=EN-US>2</span><span
+style='font-family:宋体'>个参数的定义。</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+style='font-family:宋体'>因此，</span><span lang=EN-US>COStream</span><span
+style='font-family:宋体'>流程序是由</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>文法结构来描述程序代表的数据流图，并通过调用</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>来扩展流图结构，实现不同类型的流应用程序，下面的流程序例子反映了这样的语言特点，这里省略了</span><span
+lang=EN-US>param</span><span style='font-family:宋体'>参数。</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US>composite M (output K,L, input G,H) {&nbsp;&nbsp; </span></i><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //1</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stream&lt;int x&gt;
+I,J,K,L;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //2</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>I=O(G)()</i>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //3</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>J=P(H)();</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //4</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>K=Q(I,J)();</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //5</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>L=R(J)()</i>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //6</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US>}</span></i><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //7</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US>composite Main{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //8</span></i></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:24.0pt;line-height:
+150%'><i><span lang=EN-US>stream&lt;int x&gt;A,B,C,D,E,F</span></i><span
+lang=EN-US>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //9</span></p>
+
+<p class=MsoNormal style='line-height:150%'><i><span lang=EN-US>…</span></i></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:24.0pt;line-height:
+150%'><i><span lang=EN-US>(C,D) = M(A,B)()</span></i><span lang=EN-US>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //10</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:24.0pt;line-height:
+150%'><i><span lang=EN-US>(E,F) = M(A,B)()</span></i><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //11</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US>…</span></i></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US>}</span></i></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+style='font-family:宋体'>图</span><span lang=EN-US>1</span><span style='font-family:
+宋体'>描述了行</span><span lang=EN-US>1</span><span style='font-family:宋体'>至行</span><span
+lang=EN-US>11</span><span style='font-family:宋体'>的程序例子所反映的流图调用、扩展过程：由</span><span
+lang=EN-US>Original graph</span><span style='font-family:宋体'>扩展为</span><span
+lang=EN-US>Expanded graph</span><span style='font-family:宋体'>。</span><span
+lang=EN-US>Original graph</span><span style='font-family:宋体'>包含了</span><span
+lang=EN-US>2</span><span style='font-family:宋体'>个</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>结构</span><span lang=EN-US>M</span><span
+style='font-family:宋体'>，第一个</span><span lang=EN-US>M</span><span
+style='font-family:宋体'>将输入流</span><span lang=EN-US>A</span><span
+style='font-family:宋体'>和</span><span lang=EN-US>B</span><span style='font-family:
+宋体'>计算后得到输出流</span><span lang=EN-US>C</span><span style='font-family:宋体'>和</span><span
+lang=EN-US>D</span><span style='font-family:宋体'>，第二个</span><span lang=EN-US>M</span><span
+style='font-family:宋体'>将输入流</span><span lang=EN-US>A</span><span
+style='font-family:宋体'>和</span><span lang=EN-US>B</span><span style='font-family:
+宋体'>计算后得到输出流</span><span lang=EN-US>E</span><span style='font-family:宋体'>和</span><span
+lang=EN-US>F</span><span style='font-family:宋体'>。行</span><span lang=EN-US>1</span><span
+style='font-family:宋体'>定义了</span><span lang=EN-US>M</span><span
+style='font-family:宋体'>的输入流为</span><span lang=EN-US>G</span><span
+style='font-family:宋体'>和</span><span lang=EN-US>H</span><span style='font-family:
+宋体'>，输出流为</span><span lang=EN-US>K</span><span style='font-family:宋体'>和</span><span
+lang=EN-US>L</span><span style='font-family:宋体'>。行</span><span lang=EN-US>8</span><span
+style='font-family:宋体'>表示当</span><span lang=EN-US>M</span><span
+style='font-family:宋体'>在</span><span lang=EN-US>Main</span><span
+style='font-family:宋体'>中第一次被调用时，输入流和输出流发生实例化：</span><span lang=EN-US>G=A,H=B,K=C</span><span
+style='font-family:宋体'>以及</span><span lang=EN-US>L=D</span><span
+style='font-family:宋体'>。在</span><span lang=EN-US>Expand graph</span><span
+style='font-family:宋体'>中</span><span lang=EN-US>M</span><span style='font-family:
+宋体'>因为被调用</span><span lang=EN-US>2</span><span style='font-family:宋体'>次而实例化成</span><span
+lang=EN-US>2</span><span style='font-family:宋体'>份，所以</span><span lang=EN-US>M</span><span
+style='font-family:宋体'>中的中间流</span><span lang=EN-US>I</span><span
+style='font-family:宋体'>和</span><span lang=EN-US>J</span><span style='font-family:
+宋体'>也被实例化为</span><span lang=EN-US>2</span><span style='font-family:宋体'>份：</span><span
+lang=EN-US>C.I</span><span style='font-family:宋体'>，</span><span lang=EN-US>C.J</span><span
+style='font-family:宋体'>和</span><span lang=EN-US>E.I</span><span
+style='font-family:宋体'>，</span><span lang=EN-US>E.J</span><span
+style='font-family:宋体'>。这些子流图因被调用而实例化展开的过程在编译器编译时完成，即经过编译后，流程序的流图结构将被扩展成完整的流图，程序中的多个</span><span
+lang=EN-US>composite</span><span style='font-family:宋体'>也将转变为一个。</span> </p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:24.0pt;
+line-height:150%'><i><span lang=EN-US><img width=538 height=290 id="图片 1"
+src="Composite%20Statement%20Block.files/image001.png"></span></i></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:9.0pt;font-family:宋体'>图</span><span lang=EN-US
+style='font-size:9.0pt'>1</span><span style='font-size:9.0pt;font-family:宋体'>：</span><span
+lang=EN-US style='font-size:9.0pt'> composite</span><span style='font-size:
+9.0pt;font-family:宋体'>流图扩展过程</span></p>
+
+</div>
+
+</body>
+
+</html>

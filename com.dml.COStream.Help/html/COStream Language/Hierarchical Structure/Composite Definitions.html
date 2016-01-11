@@ -1,0 +1,169 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"页眉 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	layout-grid-mode:char;
+	border:none;
+	padding:0cm;
+	font-size:9.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"页脚 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	layout-grid-mode:char;
+	font-size:9.0pt;
+	font-family:"Calibri",sans-serif;}
+span.Char
+	{mso-style-name:"页眉 Char";
+	mso-style-link:页眉;}
+span.Char0
+	{mso-style-name:"页脚 Char";
+	mso-style-link:页脚;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	layout-grid:15.6pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=ZH-CN style='text-justify-trim:punctuation'>
+
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:16.0pt'>Composite</span></b><b><span
+style='font-size:16.0pt;font-family:宋体'>定义</span></b></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+lang=EN-US>composite</span><span style='font-family:宋体'>是由一个头部和一个主体部分组成，它的</span><span
+lang=EN-US>BNF</span><span style='font-family:宋体'>表示是：</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US>compositeDef ::= compositeHead compositeBody</span></i></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+style='font-size:12.0pt;line-height:150%'>composite</span></b><b><span
+style='font-size:12.0pt;line-height:150%;font-family:宋体'>头部定义</span></b></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+style='font-family:宋体'>与</span><span lang=EN-US>operator</span><span
+style='font-family:宋体'>的头部文法结构相似，</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>的头部文法结构由名称，输入流和输出流组成，它的</span><span lang=EN-US>BNF</span><span
+style='font-family:宋体'>表示是：</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US>compositeHead&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ::= ‘composite’ ID
+‘(’ (inOutputlist<sup>+,</sup>)<sup>?</sup> ‘)’</span></i></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US>inOutputlist&nbsp;&nbsp;&nbsp;&nbsp; ::= (‘input’|‘output’) (
+streamType<sup> </sup>ID )<sup>+,</sup></span></i></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+style='font-family:宋体'>例子：</span><span lang=EN-US>composite CS(output o1, input
+i1) </span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='line-height:150%;layout-grid-mode:char'><b><span
+lang=EN-US style='font-size:12.0pt;line-height:150%'>composite</span></b><b><span
+style='font-size:12.0pt;line-height:150%;font-family:宋体'>输入输出流</span></b></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+style='font-family:宋体'>当程序只由一个</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>组成或者该</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>作为</span><span lang=EN-US>Main composite</span><span
+style='font-family:宋体'>，那么输入、输出流信息可以省略。如图</span><span lang=EN-US>1.1</span><span
+style='font-family:宋体'>：</span><span lang=EN-US>composite MovingAverage</span><span
+style='font-family:宋体'>和</span><span lang=EN-US>composite Main</span><span
+style='font-family:宋体'>。若需要表示一个可以被调用的</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>，则必须指明输入流、输出流信息，如图</span><span lang=EN-US>4.1</span><span
+style='font-family:宋体'>中的</span><span lang=EN-US>composite MyOp(output out,
+input in)</span><span style='font-family:宋体'>。</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+style='font-family:宋体'>多输入多输出的</span><span lang=EN-US>composite ComSt(ouput
+o1,o2,o3, input i1,i2,i3)</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+style='font-size:12.0pt;line-height:150%'>composite</span></b><b><span
+style='font-size:12.0pt;line-height:150%;font-family:宋体'>主体定义</span></b></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><span
+lang=EN-US>composite</span><span style='font-family:宋体'>主体由三个部分组成：</span><span
+lang=EN-US>param</span><span style='font-family:宋体'>参数列表、声明和定义语句列表和语句列表，</span><span
+lang=EN-US>BNF</span><span style='font-family:宋体'>表示如下：</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US>compositeBody ::&nbsp;&nbsp;&nbsp; = '{'&nbsp;&nbsp; </span></i></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ('param'
+paramlist<sup>+</sup> ';')<sup>?</sup></span></i></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (declaration)*</span></i></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (<a
+name="OLE_LINK20"></a><a name="OLE_LINK19">costreamStmts</a>)<sup>+</sup></span></i></p>
+
+<p class=MsoNormal style='margin-left:102.0pt;text-indent:24.0pt;line-height:
+150%'><i><span lang=EN-US>'}'</span></i></p>
+
+</div>
+
+</body>
+
+</html>

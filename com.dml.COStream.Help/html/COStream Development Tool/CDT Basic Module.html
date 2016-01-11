@@ -1,0 +1,273 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"页眉 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	layout-grid-mode:char;
+	border:none;
+	padding:0cm;
+	font-size:9.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"页脚 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	layout-grid-mode:char;
+	font-size:9.0pt;
+	font-family:"Calibri",sans-serif;}
+span.Char
+	{mso-style-name:"页眉 Char";
+	mso-style-link:页眉;}
+span.Char0
+	{mso-style-name:"页脚 Char";
+	mso-style-link:页脚;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	layout-grid:15.6pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=ZH-CN style='text-justify-trim:punctuation'>
+
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal style='line-height:150%'><b><span style='font-size:16.0pt;
+line-height:150%;font-family:宋体'>基本模块</span></b></p>
+
+<p class=MsoNormal style='line-height:150%'><b><span style='font-size:12.0pt;
+line-height:150%;font-family:宋体'>数据流编程框架</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:7.8pt;text-indent:24.1pt;line-height:
+150%'><span style='font-family:宋体'>用户界面的菜单栏中加入了</span><span lang=EN-US>COStream
+Run</span><span style='font-family:宋体'>菜单项，在该菜单项下存在两个子菜单项，分别是</span><span
+lang=EN-US>compile</span><span style='font-family:宋体'>和</span><span lang=EN-US>run</span><span
+style='font-family:宋体'>，代表数据流程序执行的两个部分，程序员新建</span><span lang=EN-US>COStream</span><span
+style='font-family:宋体'>工程，在代码编辑框编写好流程序后，点击</span><span lang=EN-US>compile</span><span
+style='font-family:宋体'>菜单项，插件会调用流语言编译器将</span><span lang=EN-US>COStream</span><span
+style='font-family:宋体'>源程序转换成</span><span lang=EN-US>C++</span><span
+style='font-family:宋体'>目标代码，目标代码会存放在后台的临时文件夹中，然后执行</span><span lang=EN-US>run</span><span
+style='font-family:宋体'>菜单项，插件会找到上一步生成的目标代码文件夹，编译并链接生成的文件，得到流语言的可执行程序，运行这一程序得到流语言源程序的结果。流语言开发与</span><span
+lang=EN-US>Eclipse</span><span style='font-family:宋体'>默认的</span><span
+lang=EN-US>java</span><span style='font-family:宋体'>语言的开发有着明显的差异性，因此，在插件中加入针对流程序的</span><span
+lang=EN-US>COStream</span><span style='font-family:宋体'>透视图，如下图</span><span
+lang=EN-US>1</span><span style='font-family:宋体'>所示，在该透视图下，工程视图模块，代码编辑模块和流图视图模块的比例是</span><span
+lang=EN-US>1:3:1</span><span style='font-family:宋体'>，菜单栏中的新增项只在</span><span
+lang=EN-US>COStream</span><span style='font-family:宋体'>透视图中显示。</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:24.0pt;
+line-height:135%'><span lang=EN-US><img width=914 height=548 id="图片 1"
+src="CDT%20Basic%20Module.files/image001.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:24.0pt;
+line-height:135%'><span style='font-size:9.0pt;line-height:135%;font-family:
+宋体'>图</span><span lang=EN-US style='font-size:9.0pt;line-height:135%'>1</span><span
+style='font-size:9.0pt;line-height:135%;font-family:宋体'>：</span><span
+style='font-size:9.0pt;line-height:135%;font-family:宋体'>数据流可视化编程环境透视图</span></p>
+
+<p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+style='font-size:12.0pt;line-height:150%'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='line-height:150%'><b><span style='font-size:12.0pt;
+line-height:150%;font-family:宋体'>代码编辑模块</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.2pt;line-height:150%'><span
+style='font-family:宋体'>在</span><span lang=EN-US>Eclispe-plugin</span><span
+style='font-family:宋体'>开发环境中提供了对</span><span lang=EN-US>textEditor</span><span
+style='font-family:宋体'>的扩展接口，本项目使用这一扩展接口继承实现了</span><span lang=EN-US>cosEditor</span><span
+style='font-family:宋体'>，在这一编辑器中将</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>，</span><span lang=EN-US>operator</span><span
+style='font-family:宋体'>，</span><span lang=EN-US>stream</span><span
+style='font-family:宋体'>，</span><span lang=EN-US>add</span><span
+style='font-family:宋体'>，</span><span lang=EN-US>init</span><span
+style='font-family:宋体'>，</span><span lang=EN-US>work</span><span
+style='font-family:宋体'>，</span><span lang=EN-US>window</span><span
+style='font-family:宋体'>等关键字进行高亮显示。为实现</span><span lang=EN-US>cosEditor</span><span
+style='font-family:宋体'>中的错误预提示，需要用到</span><span lang=EN-US>COStream</span><span
+style='font-family:宋体'>编译器中的错误输出结果。在</span><span lang=EN-US>COStream</span><span
+style='font-family:宋体'>编译器中，设计了当流程序编译出错时的错误输出，并指定了错误类型以及产生错误的位置信息，代码编辑模块遍历流编译器编译产生的所有错误信息，找出错误行数以及错误类型，并在</span><span
+lang=EN-US>cosEditor</span><span style='font-family:宋体'>上标注出这些信息，流程序员在编写完</span><span
+lang=EN-US>COStream</span><span style='font-family:宋体'>数据流程序后按保存键，代码编辑模块会在后台调用流编译器，执行上述过程，在</span><span
+lang=EN-US>cosEditor</span><span style='font-family:宋体'>中显示错误信息，从而简化了程序员的编程，让程序员减少不必要细节的时间开销。</span></p>
+
+<p class=MsoNormal style='text-indent:21.2pt;line-height:150%'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='line-height:150%'><b><span style='font-size:12.0pt;
+line-height:150%;font-family:宋体'>流语言编程接口模块</span></b></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:135%'><span
+style='font-family:宋体'>在</span><span lang=EN-US>Eclipse</span><span
+style='font-family:宋体'>插件开发中，官方提供了针对插件开发的编程接口，要改变工程的相关参数，有两种方式，第一种是在菜单栏的</span><span
+lang=EN-US>project</span><span style='font-family:宋体'>菜单项下的工程属性部分添加，这种修改只会改变当前的单个工程的配置属性；第二种是在</span><span
+lang=EN-US>windows</span><span style='font-family:宋体'>菜单项的首选项子菜单当中添加，这种方式改变的是整个开发环境的配置参数。如下图</span><span
+lang=EN-US>2</span><span style='font-family:宋体'>所示，考虑到流程序接口配置的优先级，将流语言参数相关设定放在首选项中。</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:135%'><span
+lang=EN-US>Eclipse-plugin</span><span style='font-family:宋体'>针对首选项提供了</span><span
+lang=EN-US>preferencePages</span><span style='font-family:宋体'>扩展点，在该扩展点下完成流语言编程接口相应参数的添加，包括机器数和机器上参与运行的核数，后端平台的选择以及一些其他的选项。若运行在</span><span
+lang=EN-US>X86</span><span style='font-family:宋体'>或者</span><span lang=EN-US>GPU</span><span
+style='font-family:宋体'>后端，则默认可用机器数为</span><span lang=EN-US>1</span><span
+style='font-family:宋体'>，只需要设置可运行的核数，若目标代码运行在集群后端，则运行的机器数是可以指定的，同时可以指定每个机器上参与运行的物理核的个数。</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:135%'><span
+style='font-family:宋体'>要实现上述功能，必须在</span><span lang=EN-US>COStream</span><span
+style='font-family:宋体'>编译器内部预留了相应的接口，则通过首选项的响应为</span><span lang=EN-US>COStream</span><span
+style='font-family:宋体'>编译器添加相应的参数，则当前流语言编译时执行的是带运行选项的编译命令，因此可以让程序员可视化的操作流语言编译选项。</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+lang=EN-US><img width=510 height=450 id="图片 2"
+src="CDT%20Basic%20Module.files/image002.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+style='font-size:9.0pt;line-height:150%;font-family:宋体'>图</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%'>2</span><span
+style='font-size:9.0pt;line-height:150%;font-family:宋体'>：数据流插件编程接口图</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;line-height:150%'><b><span
+lang=EN-US style='font-size:12.0pt;line-height:150%'>&nbsp;</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;line-height:150%'><b><span
+style='font-size:12.0pt;line-height:150%;font-family:宋体'>流图显示模块</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.2pt;
+line-height:150%'><span style='font-family:宋体'>在</span><span lang=EN-US>COStream</span><span
+style='font-family:宋体'>数据流程序中，通过静态数据流图</span><span lang=EN-US>(SDF)</span><span
+style='font-family:宋体'>来表示流程序展开后的结构，</span><span lang=EN-US>SDF</span><span
+style='font-family:宋体'>图包含流程序的各个计算节点</span><span lang=EN-US>(actor)</span><span
+style='font-family:宋体'>以及连接</span><span lang=EN-US>actor</span><span
+style='font-family:宋体'>的通行边，数据流程序员通过分析</span><span lang=EN-US>SDF</span><span
+style='font-family:宋体'>图的结构，能够清晰的了解各个</span><span lang=EN-US>actor</span><span
+style='font-family:宋体'>工作量，流图划分情况。因此，</span><span lang=EN-US>SDF</span><span
+style='font-family:宋体'>图的显示是</span><span lang=EN-US>COStream</span><span
+style='font-family:宋体'>流编程步骤当中的重要一环，在插件中添加流图显示模块有助于程序员分析流程序的结构特点，对编写的程序作出改进。若需要得到某一个</span><span
+lang=EN-US>SDF</span><span style='font-family:宋体'>图，则需点击</span><span
+lang=EN-US>SDF</span><span style='font-family:宋体'>视图中相应的列表项，则插件会跳转到</span><span
+lang=EN-US>Image</span><span style='font-family:宋体'>视图，如下图</span><span
+lang=EN-US>3</span><span style='font-family:宋体'>所示，对相应的</span><span lang=EN-US>SDF</span><span
+style='font-family:宋体'>图在</span><span lang=EN-US>Image</span><span
+style='font-family:宋体'>视图中显示。</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+lang=EN-US><img width=858 height=396 id="图片 3"
+src="CDT%20Basic%20Module.files/image003.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+style='font-size:9.0pt;line-height:150%;font-family:宋体'>图</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%'>3</span><span
+style='font-size:9.0pt;line-height:150%;font-family:宋体'>：</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%'>SDF</span><span
+style='font-size:9.0pt;line-height:150%;font-family:宋体'>视图和</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%'>Image</span><span
+style='font-size:9.0pt;line-height:150%;font-family:宋体'>视图</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;line-height:150%'><b><span
+lang=EN-US style='font-size:12.0pt;line-height:150%'>&nbsp;</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;line-height:150%'><b><span
+style='font-size:12.0pt;line-height:150%;font-family:宋体'>性能分析模块</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.2pt;
+line-height:150%'><span style='font-family:宋体'>当流程序编写完成后，性能分析工具会分析首选项中选中的后端信息，来调用不同的分析工具，如果流程序运行在</span><span
+lang=EN-US>X86</span><span style='font-family:宋体'>后端，在该程序编译运行的过程中性能分析工具会先分析流程序计算，同步，通信等模块的时间开销，并统计每一个核运行这几部分所需的时间以及所需时间占的百分比，结果显示在性能分析视图中，集群后端的性能分析界面如下图</span><span
+lang=EN-US>4</span><span style='font-family:宋体'>所示。在流程序运行结束后性能分析工具并不会结束，性能分析工具会在后台运行同一个程序的串行执行版本，并计算串行执行的总时间，通过计算上述时间，系统会得到程序的加速比，并在性能分析视图中显示。同时，流程序员还可以在性能分析视图中设定扩大执行的次数，得到计算资源充足时的流程序加速比。性能分析视图在</span><span
+lang=EN-US>COStream</span><span style='font-family:宋体'>透视图中并不会默认出现在用户界面，需要在</span><span
+lang=EN-US>windows</span><span style='font-family:宋体'>菜单栏下的</span><span
+lang=EN-US>COStream Performance</span><span style='font-family:宋体'>视图中调出，</span><span
+lang=EN-US>COStrea -m Performance</span><span style='font-family:宋体'>视图右键的</span><span
+lang=EN-US>refresh</span><span style='font-family:宋体'>菜单项可以刷新视图中的性能分析结果。</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:21.2pt;
+line-height:150%'><span lang=EN-US><img width=498 height=481 id="图片 4"
+src="CDT%20Basic%20Module.files/image004.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:18.2pt;
+line-height:150%'><span style='font-size:9.0pt;line-height:150%;font-family:
+宋体'>图</span><span lang=EN-US style='font-size:9.0pt;line-height:150%'>4</span><span
+style='font-size:9.0pt;line-height:150%;font-family:宋体'>：流程序编程环境集群后端性能分析图</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:24.35pt;
+line-height:150%'><b><span lang=EN-US style='font-size:12.0pt;line-height:150%'>&nbsp;</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;line-height:150%'><b><span
+style='font-size:12.0pt;line-height:150%;font-family:宋体'>流程序调试模块</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;text-indent:21.2pt;
+line-height:150%'><span style='font-family:宋体'>通过对</span><span lang=EN-US>COStream</span><span
+style='font-family:宋体'>语言和</span><span lang=EN-US>C++</span><span
+style='font-family:宋体'>目标代码之间建立映射关系，可以在</span><span lang=EN-US>COStream</span><span
+style='font-family:宋体'>编译器的代码生成模块添加代码，在每一个目标代码的生成行之前加入</span><span lang=EN-US>#line
+directives</span><span style='font-family:宋体'>信息，标示当前生成行在</span><span
+lang=EN-US>COStream</span><span style='font-family:宋体'>源代码中是在哪一行。而在可视化开发的过程中加入对后缀名为</span><span
+lang=EN-US>.cos</span><span style='font-family:宋体'>的</span><span lang=EN-US>COStream</span><span
+style='font-family:宋体'>流程序的断点支持。可视化开发环境用</span><span lang=EN-US>gdb</span><span
+style='font-family:宋体'>调试器作为流程序调试的默认调试器。当程序员调试</span><span lang=EN-US>COStream</span><span
+style='font-family:宋体'>程序时，开发工具找到程序的下一个中断位置，并在跨语言映射哈希表中找到对应的</span><span
+lang=EN-US>COStream</span><span style='font-family:宋体'>程序的位置，</span><span
+lang=EN-US>#line</span><span style='font-family:宋体'>命令是</span><span lang=EN-US>gdb</span><span
+style='font-family:宋体'>调试器中的跨语言调试命令，如下图</span><span lang=EN-US>5</span><span
+style='font-family:宋体'>所示，调试器通过这一命令可以找到当前断点的所有可用变量的信息，并加入到</span><span
+lang=EN-US>Eclipse</span><span style='font-family:宋体'>的变量视图中，在下图</span><span
+lang=EN-US>6</span><span style='font-family:宋体'>中，程序员可打开变量视图找到</span><span
+lang=EN-US>COStream</span><span style='font-family:宋体'>断点处的可见变量的值。</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:21.2pt;
+line-height:150%'><span lang=EN-US><img width=538 height=277 id="图片 5"
+src="CDT%20Basic%20Module.files/image005.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:18.2pt;
+line-height:150%'><span style='font-size:9.0pt;line-height:150%;font-family:
+宋体'>图</span><span lang=EN-US style='font-size:9.0pt;line-height:150%'>5</span><span
+style='font-size:9.0pt;line-height:150%;font-family:宋体'>：流程序</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%'>gdb</span><span
+style='font-size:9.0pt;line-height:150%;font-family:宋体'>调试功能目标代码映射关系</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:21.2pt;
+line-height:150%'><span lang=EN-US><img width=541 height=271 id="图片 6"
+src="CDT%20Basic%20Module.files/image006.jpg"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:18.2pt;
+line-height:150%'><span style='font-size:9.0pt;line-height:150%;font-family:
+宋体'>图</span><span lang=EN-US style='font-size:9.0pt;line-height:150%'>6</span><span
+style='font-size:9.0pt;line-height:150%;font-family:宋体'>：流程序调试示例图</span></p>
+
+</div>
+
+</body>
+
+</html>

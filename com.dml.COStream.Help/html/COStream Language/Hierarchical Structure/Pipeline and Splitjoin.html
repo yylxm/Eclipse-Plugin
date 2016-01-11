@@ -1,0 +1,331 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"页眉 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	layout-grid-mode:char;
+	border:none;
+	padding:0cm;
+	font-size:9.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"页脚 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	layout-grid-mode:char;
+	font-size:9.0pt;
+	font-family:"Calibri",sans-serif;}
+span.Char
+	{mso-style-name:"页眉 Char";
+	mso-style-link:页眉;}
+span.Char0
+	{mso-style-name:"页脚 Char";
+	mso-style-link:页脚;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	layout-grid:15.6pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=ZH-CN style='text-justify-trim:punctuation'>
+
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+style='font-size:16.0pt;line-height:150%'>Pipeline</span></b><b><span
+style='font-size:16.0pt;line-height:150%;font-family:宋体'>和</span></b><b><span
+lang=EN-US style='font-size:16.0pt;line-height:150%'>splitjoin</span></b><b><span
+style='font-size:16.0pt;line-height:150%;font-family:宋体'>结构</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+style='font-family:宋体'>为了便于利用</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>构建流图，在</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>内部引入支持流水线和并行结构化层次性的编程结构，即</span><span lang=EN-US>pipeline</span><span
+style='font-family:宋体'>和</span><span lang=EN-US>splitjion</span><span
+style='font-family:宋体'>两种结构。图</span><span lang=EN-US>1</span><span
+style='font-family:宋体'>描述了这两种基本的流结构。</span><span lang=EN-US>pipeline</span><span
+style='font-family:宋体'>结构将不同的</span><span lang=EN-US>operator</span><span
+style='font-family:宋体'>顺序直线连接；</span><span lang=EN-US>splitjion</span><span
+style='font-family:宋体'>结构对输入流进行分批并行处理。</span><span lang=EN-US>splitjion</span><span
+style='font-family:宋体'>为了便于利用这两种结构在</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>中与其他的</span><span lang=EN-US>operator</span><span
+style='font-family:宋体'>混合使用，<b><u>要求这两种层次性结构都是单输入流单输出流的</u></b>。</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:7.8pt;text-align:center'><span
+lang=EN-US><img width=109 height=211 id="图片 10"
+src="Pipeline%20and%20Splitjoin.files/image001.png">&nbsp;&nbsp; <img
+width=214 height=186 id="图片 11"
+src="Pipeline%20and%20Splitjoin.files/image002.png"></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:7.8pt;text-align:center;
+line-height:150%'><span style='font-size:9.0pt;line-height:150%;font-family:
+宋体'>图</span><span lang=EN-US style='font-size:9.0pt;line-height:150%'>1</span><span
+style='font-size:9.0pt;line-height:150%;font-family:宋体'>：</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%'> COStream</span><span
+style='font-size:9.0pt;line-height:150%;font-family:宋体'>支持的两种层次性结构</span></p>
+
+<p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+style='font-size:12.0pt;line-height:150%'>pipeline</span></b><b><span
+style='font-size:12.0pt;line-height:150%;font-family:宋体'>结构</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>pipeline</span><span style='font-family:宋体'>的结构主要由</span><span
+lang=EN-US>pipeline</span><span style='font-family:宋体'>的头部和</span><span
+lang=EN-US>pipeline</span><span style='font-family:宋体'>的主体组成，</span><span
+lang=EN-US>BNF</span><span style='font-family:宋体'>表示如：</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US>pipelineHead&nbsp; ::= </span></i><i><span lang=EN-US
+style='line-height:150%'>ID‘=’ ‘pipeline’ opInput</span></i></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+‘pipeline’</span></i></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US>pipelineBody&nbsp;&nbsp; </span></i><i><span lang=EN-US
+style='line-height:150%'>::=’{’</span></i></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; declaration<sup>*</sup></span></i></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; comstreamStmts<sup>+</sup></span></i></p>
+
+<p class=MsoNormal style='margin-left:81.0pt;text-indent:24.0pt;line-height:
+150%'><i><span lang=EN-US style='line-height:150%'>‘}’</span></i></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>pipeline</span><span style='font-family:宋体'>的主体部分包括两部分：第一部分是</span><span
+lang=EN-US>pipeline</span><span style='font-family:宋体'>内部要使用到的变量的定义和声明；第二部分是</span><span
+lang=EN-US>pipeline</span><span style='font-family:宋体'>内的操作语句，操作语句主要包括一般的</span><span
+lang=EN-US>C</span><span style='font-family:宋体'>语言语句、</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>调用语句以及</span><span lang=EN-US>pipeline</span><span
+style='font-family:宋体'>和</span><span lang=EN-US>splitjoin</span><span
+style='font-family:宋体'>结构，对于</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>调用、</span><span lang=EN-US>splitjoin</span><span
+style='font-family:宋体'>和</span><span lang=EN-US>pipeline</span><span
+style='font-family:宋体'>结构的调用主要通过</span><span lang=EN-US>add</span><span
+style='font-family:宋体'>操作符确定它们之间的数据依赖关系，</span><span lang=EN-US>add</span><span
+style='font-family:宋体'>语句确定了</span><span lang=EN-US>pipeline</span><span
+style='font-family:宋体'>内部的</span><span lang=EN-US>operator</span><span
+style='font-family:宋体'>的连接。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+style='font-family:宋体'>如</span><span lang=EN-US>stream&lt;int
+x&gt;Out=pipeline(In)</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>{</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add&nbsp;
+Comp1(p1);</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add&nbsp;
+Comp2(p2);</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add&nbsp;
+Comp3(p3);</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>}</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+style='font-family:宋体'>由于</span><span lang=EN-US>pipeline</span><span
+style='font-family:宋体'>结构是单输入流和单输出流的，我们规定能够在</span><span lang=EN-US>pipeline</span><span
+style='font-family:宋体'>中被调用的</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>也必须是单输入流和单输出流的。这里由于都是单输入单输出，通过</span><span lang=EN-US>“add”</span><span
+style='font-family:宋体'>操作确定数据在</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>间的流向。因此，</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>调用以及嵌套添加</span><span lang=EN-US>pipeline</span><span
+style='font-family:宋体'>和</span><span lang=EN-US>splitjoin</span><span
+style='font-family:宋体'>时不需要给出输入和输出数据流的任何信息，只需要给出参数即可。</span></p>
+
+<p class=MsoNormal style='text-indent:21.1pt;line-height:150%'><b><u><span
+lang=EN-US><span style='text-decoration:none'>&nbsp;</span></span></u></b></p>
+
+<p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+style='font-size:12.0pt;line-height:150%'>splitjoin</span></b><b><span
+style='font-size:12.0pt;line-height:150%;font-family:宋体'>结构</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>splitjoin</span><span style='font-family:宋体'>的结构主要有</span><span
+lang=EN-US>splitjoin</span><span style='font-family:宋体'>的头部和</span><span
+lang=EN-US>splitjoin</span><span style='font-family:宋体'>的主体组成，</span><span
+lang=EN-US>BNF</span><span style='font-family:宋体'>表示如：</span></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US>splitjoinHead&nbsp; ::= </span></i><i><span lang=EN-US
+style='line-height:150%'>ID ‘=’ ‘splitjoin’ opInput</span></i></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+‘splitjoin’</span></i></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US style='line-height:150%'>splitStmt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ::=
+‘split’ ( ‘duplicate’ ‘(‘ ‘)’ | ’roundrobin’ ‘(‘ expr<sup>*</sup>‘)’ ) ‘;’</span></i></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US style='line-height:150%'>joinStmt&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ::=‘join’
+’roundrobin’ ‘(‘ expr<sup>*</sup> ‘)’ ‘;’</span></i></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US style='line-height:150%'>splitjoinBody&nbsp;&nbsp; ::=’{’</span></i></p>
+
+<p class=MsoNormal style='margin-left:84.0pt;text-indent:24.0pt;line-height:
+150%'><a name="OLE_LINK12"></a><a name="OLE_LINK11"><i><span lang=EN-US
+style='line-height:150%'>declaration</span></i></a><i><sup><span lang=EN-US
+style='line-height:150%'>*</span></sup></i></p>
+
+<p class=MsoNormal style='margin-left:84.0pt;text-indent:24.0pt;line-height:
+150%'><i><span lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stmt<sup>*</sup></span></i></p>
+
+<p class=MsoNormal style='margin-left:84.0pt;text-indent:24.0pt;line-height:
+150%'><i><span lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; splitStmt</span></i></p>
+
+<p class=MsoNormal style='margin-left:84.0pt;text-indent:24.0pt;line-height:
+150%'><i><span lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; comstreamStmts<sup>
++</sup></span></i></p>
+
+<p class=MsoNormal style='margin-left:84.0pt;text-indent:24.0pt;line-height:
+150%'><i><span lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; joinStmt</span></i></p>
+
+<p class=MsoNormal style='text-indent:24.0pt;line-height:150%'><i><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ‘}’</span></i></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>splitjoin</span><span style='font-family:宋体'>结构是<a name="OLE_LINK1"><b>关键字</b></a></span><b><span
+lang=EN-US>split</span></b><b><span style='font-family:宋体'>、</span><span
+lang=EN-US>join</span></b><span style='font-family:宋体'>以及一些声明和语句组成。当一个流作为</span><span
+lang=EN-US>splitjoin</span><span style='font-family:宋体'>结构的输入流时这个流首先被</span><span
+lang=EN-US>split</span><span style='font-family:宋体'>结点分割，</span><span
+lang=EN-US>split</span><span style='font-family:宋体'>节点是根据</span><span
+lang=EN-US>splitjoin</span><span style='font-family:宋体'>结构中</span><span
+lang=EN-US>composite</span><span style='font-family:宋体'>调用情况产生一批满足相应条件的输出流作为不同的</span><span
+lang=EN-US>composite</span><span style='font-family:宋体'>调用的输入流，然后这些</span><span
+lang=EN-US>composite</span><span style='font-family:宋体'>调用的输出流作为</span><span
+lang=EN-US>join</span><span style='font-family:宋体'>结点的输入流，</span><span
+lang=EN-US>join</span><span style='font-family:宋体'>同样根据</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>调用情况来合并各个输入流，将合并后产生的新的流作为</span><span lang=EN-US>split</span><span
+style='font-family:宋体'>结点的输出，同时也作为</span><span lang=EN-US>splitjoin</span><span
+style='font-family:宋体'>结构的输入流。</span></p>
+
+<p class=MsoNormal style='text-indent:21.1pt;line-height:150%'><b><span
+style='font-family:宋体'>在</span><span lang=EN-US>splitjoin</span></b><b><span
+style='font-family:宋体'>结构中</span><span lang=EN-US>split</span></b><b><span
+style='font-family:宋体'>主要有两种方式：</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+style='font-family:宋体'>（</span><span lang=EN-US>1</span><span style='font-family:
+宋体'>）</span><span lang=EN-US>duplicate</span><span style='font-family:宋体'>方式，在这种方式下所有的</span><span
+lang=EN-US>composite</span><span style='font-family:宋体'>调用将会有完全相同的输入流，即</span><span
+lang=EN-US>split</span><span style='font-family:宋体'>结点将</span><span lang=EN-US>split</span><span
+style='font-family:宋体'>的输入流完全的复制产生一批新的输出流作为</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>调用的输入。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+style='font-family:宋体'>（</span><span lang=EN-US>2</span><span style='font-family:
+宋体'>）</span><span lang=EN-US>roundrobin(w<sub>1</sub>,</span><span
+style='font-family:宋体'>…</span><span lang=EN-US>,w<sub>n</sub>)</span><span
+style='font-family:宋体'>方式，在这种方式下</span><span lang=EN-US>split</span><span
+style='font-family:宋体'>结点将其输入流中的前</span><span lang=EN-US>w<sub>1</sub></span><span
+style='font-family:宋体'>个数据发送给第一个</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>调用，接下来的</span><span lang=EN-US>w<sub>2</sub></span><span
+style='font-family:宋体'>个数据发送给第二个</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>调用，以此类推，将最后的</span><span lang=EN-US>w<sub>n</sub></span><span
+style='font-family:宋体'>个数据发送给最后一个</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>调用。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+style='font-family:宋体'>对于</span><span lang=EN-US>join</span><span
+style='font-family:宋体'>结点只有一种</span><span lang=EN-US>roundrobin</span><span
+style='font-family:宋体'>方式。与</span><span lang=EN-US>pipeline</span><span
+style='font-family:宋体'>结构类似，在</span><span lang=EN-US>splitjoin</span><span
+style='font-family:宋体'>结构中调用的</span><span lang=EN-US>composite</span><span
+style='font-family:宋体'>也要求是单输入流和单输出流的。在</span><span lang=EN-US>COStream</span><span
+style='font-family:宋体'>中</span><span lang=EN-US>split</span><span
+style='font-family:宋体'>和</span><span lang=EN-US>join</span><span
+style='font-family:宋体'>分别用关键字</span><span lang=EN-US>split</span><span
+style='font-family:宋体'>和</span><span lang=EN-US>join</span><span
+style='font-family:宋体'>表示。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=553 height=407 id="图片 12"
+src="Pipeline%20and%20Splitjoin.files/image003.png"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+style='font-size:9.0pt;line-height:150%;font-family:宋体'>图</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%'>2</span><span
+style='font-size:9.0pt;line-height:150%;font-family:宋体'>：</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%'> COStream</span><span
+style='font-size:9.0pt;line-height:150%;font-family:宋体'>中</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%'>splitjoin</span><span
+style='font-size:9.0pt;line-height:150%;font-family:宋体'>和</span><span
+lang=EN-US style='font-size:9.0pt;line-height:150%'>pipeline</span><span
+style='font-size:9.0pt;line-height:150%;font-family:宋体'>应用举例</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+style='font-family:宋体'>图</span><span lang=EN-US>2</span><span style='font-family:
+宋体'>中的例子能够充分的说明</span><span lang=EN-US>splitjoin</span><span style='font-family:
+宋体'>和</span><span lang=EN-US>pipeline</span><span style='font-family:宋体'>的层次性特点和使用特性。在图中左边部分是</span><span
+lang=EN-US>COStream</span><span style='font-family:宋体'>数据流程序的源码部分，而右边是对应的数据流图。在本例中可以看到添加了层次性的结构有助于增加数据流程序编程的灵活性和可扩展性。另外在</span><span
+lang=EN-US>splitjoin</span><span style='font-family:宋体'>和</span><span
+lang=EN-US>pipeline</span><span style='font-family:宋体'>中流能够被参数化，在本例</span><span
+lang=EN-US>composite SJP</span><span style='font-family:宋体'>中关于</span><span
+lang=EN-US>LowPassFilter</span><span style='font-family:宋体'>和</span><span
+lang=EN-US>HighPassFilter</span><span style='font-family:宋体'>的调用次数可以有参数</span><span
+lang=EN-US>N</span><span style='font-family:宋体'>来确定，通过</span><span lang=EN-US>N</span><span
+style='font-family:宋体'>来控制</span><span lang=EN-US>splitjoin</span><span
+style='font-family:宋体'>结构的宽度，同理在</span><span lang=EN-US>pipeline</span><span
+style='font-family:宋体'>中也可以通过参数来控制</span><span lang=EN-US>pipeline</span><span
+style='font-family:宋体'>的深度。</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

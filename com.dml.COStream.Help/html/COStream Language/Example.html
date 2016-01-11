@@ -1,0 +1,177 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"页眉 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	layout-grid-mode:char;
+	border:none;
+	padding:0cm;
+	font-size:9.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"页脚 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	layout-grid-mode:char;
+	font-size:9.0pt;
+	font-family:"Calibri",sans-serif;}
+span.Char
+	{mso-style-name:"页眉 Char";
+	mso-style-link:页眉;}
+span.Char0
+	{mso-style-name:"页脚 Char";
+	mso-style-link:页脚;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	layout-grid:15.6pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=ZH-CN style='text-justify-trim:punctuation'>
+
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal style='line-height:150%'><b><span style='font-size:16.0pt;
+line-height:150%;font-family:宋体'>程序例子</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+style='line-height:150%;font-family:宋体'>每一个独立运行的</span><span lang=EN-US
+style='line-height:150%'>COStream</span><span style='line-height:150%;
+font-family:宋体'>程序都由一个称为</span><span lang=EN-US style='line-height:150%'>Main</span><span
+style='line-height:150%;font-family:宋体'>的</span><b><span lang=EN-US
+style='line-height:150%'>composite</span></b><span style='line-height:150%;
+font-family:宋体'>开始，</span><span lang=EN-US style='line-height:150%'>Main</span><span
+style='line-height:150%;font-family:宋体'>作为整个程序的入口。花括号之间定义了三个计算节点称为</span><b><span
+lang=EN-US style='line-height:150%'>operator</span></b><span style='line-height:
+150%;font-family:宋体'>，分别为</span><span lang=EN-US style='line-height:150%'>Source</span><span
+style='line-height:150%;font-family:宋体'>，</span><span lang=EN-US
+style='line-height:150%'>Averager</span><span style='line-height:150%;
+font-family:宋体'>和</span><span lang=EN-US style='line-height:150%'>Sink</span><span
+style='line-height:150%;font-family:宋体'>。其功能如下：</span><span lang=EN-US
+style='line-height:150%'>Source</span><span style='line-height:150%;font-family:
+宋体'>作为数据源产生由“</span><span lang=EN-US style='line-height:150%'>0</span><span
+style='line-height:150%;font-family:宋体'>”开始的自然数序列输出给</span><span lang=EN-US
+style='line-height:150%'>Averager</span><span style='line-height:150%;
+font-family:宋体'>；</span><span lang=EN-US style='line-height:150%'>Averager</span><span
+style='line-height:150%;font-family:宋体'>将得到的前</span><span lang=EN-US
+style='line-height:150%'>N</span><span style='line-height:150%;font-family:
+宋体'>个自然数求平均值并消耗掉最早得到的一个数据，把计算得到的平均值输出给</span><span lang=EN-US style='line-height:
+150%'>Sink</span><span style='line-height:150%;font-family:宋体'>；</span><span
+lang=EN-US style='line-height:150%'>Sink</span><span style='line-height:150%;
+font-family:宋体'>将得到的平均值打印输出到屏幕。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+style='line-height:150%;font-family:宋体'>各个</span><span lang=EN-US
+style='line-height:150%'>operator</span><span style='line-height:150%;
+font-family:宋体'>之间通过流变量</span><span lang=EN-US style='line-height:150%'>S</span><span
+style='line-height:150%;font-family:宋体'>和</span><span lang=EN-US
+style='line-height:150%'>P</span><span style='line-height:150%;font-family:
+宋体'>相互连接，每个</span><span lang=EN-US style='line-height:150%'>operator</span><span
+style='line-height:150%;font-family:宋体'>内部包含了对数据流的处理过程。</span><span lang=EN-US
+style='line-height:150%'>Operator</span><span style='line-height:150%;
+font-family:宋体'>对每个数据流变量都定义了相应的</span><b><span lang=EN-US style='line-height:
+150%'>window</span></b><b><span style='line-height:150%;font-family:宋体'>，</span></b><span
+style='line-height:150%;font-family:宋体'>采用窗口机制（</span><span lang=EN-US
+style='line-height:150%'>window</span><span style='line-height:150%;font-family:
+宋体'>）对每个数据流进行访问，</span><span lang=EN-US style='line-height:150%'>window</span><span
+style='line-height:150%;font-family:宋体'>内存放了</span><span lang=EN-US
+style='line-height:150%'>operator</span><span style='line-height:150%;
+font-family:宋体'>每次进行运算所需数据。每次</span><span lang=EN-US style='line-height:150%'>operator</span><span
+style='line-height:150%;font-family:宋体'>都从输入流的</span><span lang=EN-US
+style='line-height:150%'>window</span><span style='line-height:150%;font-family:
+宋体'>中读入数据，同时将结果填入到输出流</span><span lang=EN-US style='line-height:150%'>window</span><span
+style='line-height:150%;font-family:宋体'>中。图</span><span lang=EN-US
+style='line-height:150%'>1</span><span style='line-height:150%;font-family:
+宋体'>中</span><span lang=EN-US style='line-height:150%'>operator Averager</span><span
+style='line-height:150%;font-family:宋体'>在输入流</span><span lang=EN-US
+style='line-height:150%'>S</span><span style='line-height:150%;font-family:
+宋体'>和输出流</span><span lang=EN-US style='line-height:150%'>P</span><span
+style='line-height:150%;font-family:宋体'>上分别定义了</span><span lang=EN-US
+style='line-height:150%'>2</span><span style='line-height:150%;font-family:
+宋体'>个</span><span lang=EN-US style='line-height:150%'>window</span><span
+style='line-height:150%;font-family:宋体'>：滑动窗口（</span><b><span lang=EN-US
+style='line-height:150%'>sliding</span></b><span style='line-height:150%;
+font-family:宋体'>）和翻转窗口（</span><b><span lang=EN-US style='line-height:150%'>tumbling</span></b><span
+style='line-height:150%;font-family:宋体'>），</span><span lang=EN-US
+style='line-height:150%'>sliding</span><span style='line-height:150%;
+font-family:宋体'>窗口的大小为</span><span lang=EN-US style='line-height:150%'>N</span><span
+style='line-height:150%;font-family:宋体'>个数据（</span><span lang=EN-US
+style='line-height:150%'>token</span><span style='line-height:150%;font-family:
+宋体'>）长度，每次计算完成后滑动一个</span><span lang=EN-US style='line-height:150%'>1</span><span
+style='line-height:150%;font-family:宋体'>个数据长度；</span><span lang=EN-US
+style='line-height:150%'>tumbling</span><span style='line-height:150%;
+font-family:宋体'>窗口的长度为</span><span lang=EN-US style='line-height:150%'>1</span><span
+style='line-height:150%;font-family:宋体'>个数据长度，每次计算完成后窗口的数据全部输出到数据流中。窗口中的数据采用类似数组下标的方式来访问。</span></p>
+
+<p class=MsoNormal style='text-indent:21.2pt;line-height:150%'><span
+style='line-height:150%;font-family:宋体'>每个</span><span lang=EN-US
+style='line-height:150%'>operator</span><span style='line-height:150%;
+font-family:宋体'>采用数据驱动的方式执行，即输入数据填满窗口即触发</span><span lang=EN-US
+style='line-height:150%'>operator</span><span style='line-height:150%;
+font-family:宋体'>的执行，只要有无穷的数据，程序将会无穷执行。每个</span><span lang=EN-US
+style='line-height:150%'>operator</span><span style='line-height:150%;
+font-family:宋体'>内含有在该</span><span lang=EN-US style='line-height:150%'>operator</span><span
+style='line-height:150%;font-family:宋体'>内可见的变量声明列表、</span><span lang=EN-US
+style='line-height:150%'>init</span><span style='line-height:150%;font-family:
+宋体'>函数库和</span><span lang=EN-US style='line-height:150%'>work</span><span
+style='line-height:150%;font-family:宋体'>函数块</span><span lang=EN-US
+style='line-height:150%'>3</span><span style='line-height:150%;font-family:
+宋体'>部分：变量声明列表定义了</span><span lang=EN-US style='line-height:150%'>init</span><span
+style='line-height:150%;font-family:宋体'>和</span><span lang=EN-US
+style='line-height:150%'>work</span><span style='line-height:150%;font-family:
+宋体'>中使用到的变量，</span><span lang=EN-US style='line-height:150%'>init</span><span
+style='line-height:150%;font-family:宋体'>部分的语句只在</span><span lang=EN-US
+style='line-height:150%'>operator</span><span style='line-height:150%;
+font-family:宋体'>的第一次运行时执行，之后不断地执行</span><span lang=EN-US style='line-height:
+150%'>work</span><span style='line-height:150%;font-family:宋体'>部分的代码。</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+lang=EN-US><img width=466 height=521 id="图片 1" src="Example.files/image001.png"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+style='line-height:150%;font-family:宋体'>图</span><span lang=EN-US
+style='line-height:150%'>1</span><span style='line-height:150%;font-family:
+宋体'>：</span><span lang=EN-US style='line-height:150%'> COStream</span><span
+style='line-height:150%;font-family:宋体'>数据流程序实例和对应数据流图</span></p>
+
+</div>
+
+</body>
+
+</html>

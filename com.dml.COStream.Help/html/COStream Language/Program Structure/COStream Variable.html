@@ -1,0 +1,516 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:黑体;
+	panose-1:2 1 6 9 6 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"\@黑体";
+	panose-1:2 1 6 9 6 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"页眉 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	layout-grid-mode:char;
+	border:none;
+	padding:0cm;
+	font-size:9.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"页脚 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	layout-grid-mode:char;
+	font-size:9.0pt;
+	font-family:"Calibri",sans-serif;}
+span.Char
+	{mso-style-name:"页眉 Char";
+	mso-style-link:页眉;}
+span.Char0
+	{mso-style-name:"页脚 Char";
+	mso-style-link:页脚;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	layout-grid:15.6pt;}
+div.WordSection1
+	{page:WordSection1;}
+@page WordSection2
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	layout-grid:15.6pt;}
+div.WordSection2
+	{page:WordSection2;}
+@page WordSection3
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	layout-grid:15.6pt;}
+div.WordSection3
+	{page:WordSection3;}
+-->
+</style>
+
+</head>
+
+<body lang=ZH-CN style='text-justify-trim:punctuation'>
+
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+style='font-size:16.0pt;line-height:150%'>C++</span></b><b><span
+style='font-size:16.0pt;line-height:150%;font-family:宋体'>与</span></b><b><span
+lang=EN-US style='font-size:16.0pt;line-height:150%'>COStream</span></b><b><span
+style='font-size:16.0pt;line-height:150%;font-family:宋体'>共享变量</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+style='font-family:宋体'>为了方便修改</span><span lang=EN-US>COStream</span><span
+style='font-family:宋体'>程序中的变量，以使</span><span lang=EN-US>C++</span><span
+style='font-family:宋体'>用户能够更加灵活地使用流程序，</span><span lang=EN-US>COStream</span><span
+style='font-family:宋体'>编译器允许</span><span lang=EN-US>COStream</span><span
+style='font-family:宋体'>程序引用外部</span><span lang=EN-US>C++</span><span
+style='font-family:宋体'>程序定义的全局变量。在</span><span lang=EN-US>COStream</span><span
+style='font-family:宋体'>程序中对引用的变量附加</span><span lang=EN-US>extern</span><span
+style='font-family:宋体'>标识符，并不进行初始化；在</span><span lang=EN-US>C++</span><span
+style='font-family:宋体'>程序中，将被引用的变量定义在全局命名空间中，而后每次修改这些共享变量都将修改</span><span
+lang=EN-US>COStream</span><span style='font-family:宋体'>程序中的变量。</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+style='font-family:宋体'>全局变量的使用实例如下：</span></p>
+
+<p class=MsoNormal style='margin-left:24.0pt;line-height:150%'><b><span
+lang=EN-US>COStream</span></b><b><span style='font-family:宋体'>文件：</span></b></p>
+
+<p class=MsoNormal style='margin-left:21.1pt;text-indent:.1pt;line-height:150%'><span
+lang=EN-US>extern int ExternValue;</span></p>
+
+<p class=MsoNormal style='text-indent:21.2pt;line-height:150%'><span
+lang=EN-US>composite Main(output stream&lt;double x&gt;Out, input
+stream&lt;double x&gt;In)</span></p>
+
+<p class=MsoNormal style='text-indent:21.2pt;line-height:150%'><span
+lang=EN-US>{</span></p>
+
+<p class=MsoNormal style='margin-left:60.0pt;line-height:150%'><span
+lang=EN-US>stream&lt;double x&gt; Out = FMRadioCore(In)()</span></p>
+
+<p class=MsoNormal style='margin-left:60.0pt;line-height:150%'><span
+lang=EN-US>{</span></p>
+
+<p class=MsoNormal style='margin-left:84.0pt;line-height:150%'><span
+lang=EN-US>work<br>
+{</span></p>
+
+<p class=MsoNormal style='margin-left:60.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Out[0].x
+= In[0].x+ExternValue;</span></p>
+
+<p class=MsoNormal style='margin-left:81.0pt;text-indent:3.0pt;line-height:
+150%'><span lang=EN-US>}</span></p>
+
+<p class=MsoNormal style='margin-left:60.0pt;line-height:150%'><span
+lang=EN-US>}</span></p>
+
+<p class=MsoNormal style='text-indent:21.2pt;line-height:150%'><span
+lang=EN-US>}</span></p>
+
+<p class=MsoNormal style='margin-left:24.0pt;line-height:150%'><b><span
+lang=EN-US>C++</span></b><b><span style='font-family:宋体'>文件</span><span
+lang=EN-US>:</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>#include &quot;RunCOStream.h&quot;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>using namespace COStream;</span></p>
+
+<p class=MsoNormal style='margin-left:24.0pt;line-height:150%'><span
+lang=EN-US>int ExternValue;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>int main()</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>{</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double *p = new
+double[1379];</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RunCOStream
+costream = new RunCOStream(p,1379);</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ExternValue = 2;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; costream.Run();</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ExternValue = -1;</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; costream.Run();</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+lang=EN-US>}</span></p>
+
+<p class=MsoNormal style='text-indent:21.0pt;line-height:150%'><span
+style='font-family:宋体'>如上面的代码所示</span><span lang=EN-US>,</span><span
+style='font-family:宋体'>在</span><span lang=EN-US>COStream</span><span
+style='font-family:宋体'>文件中引用了外部变量</span><span lang=EN-US>ExternValue</span><span
+style='font-family:宋体'>，该变量在</span><span lang=EN-US>C++</span><span
+style='font-family:宋体'>源文件中定义，用户可以在</span><span lang=EN-US>C++</span><span
+style='font-family:宋体'>文件中修改</span><span lang=EN-US>ExternValue</span><span
+style='font-family:宋体'>。</span></p>
+
+</div>
+
+<span lang=EN-US style='font-size:10.5pt;line-height:150%;font-family:"Calibri",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<div class=WordSection2 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal style='line-height:150%'><b><span lang=EN-US>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='line-height:150%'><b><span style='font-size:12.0pt;
+line-height:150%;font-family:宋体'>例子</span></b></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>composite MyCompositeCall(input
+stream&lt;int x&gt; In, output stream&lt;int x&gt; Out)</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>{</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp; param</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float
+f;</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp; int x=1;</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp; if(x&gt;0){</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stream&lt;int
+x&gt;G;</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; G=MyOperator(In)//2.</span><span
+style='line-height:150%;font-family:宋体'>内置</span><span lang=EN-US
+style='line-height:150%'>operator</span><span style='line-height:150%;
+font-family:宋体'>定义</span><span style='line-height:150%'> </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; work</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; G[0].x
+= In[0].x + f;</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; window</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In
+sliding(3,2);</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Out
+tumbling(1);</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; };</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp; &nbsp; }</span></p>
+
+<p class=MsoNormal style='margin-left:11.9pt;text-indent:23.5pt;line-height:
+150%'><span lang=EN-US style='line-height:150%'>}</span></p>
+
+<p class=MsoNormal style='margin-left:11.9pt;text-indent:9.4pt;line-height:
+150%'><span lang=EN-US style='line-height:150%'>composite Main(input
+stream&lt;int x&gt; In, stream&lt;int x&gt; In1, output stream&lt;int x&gt;
+Out)</span></p>
+
+<p class=MsoNormal style='text-indent:26.25pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>{</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp; param int x, int y;</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp; int i,f;</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp; int realparam;</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp; stream&lt;int x&gt; G,G1,G3;//stream</span><span
+style='line-height:150%;font-family:宋体'>独立声明</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp; if(x&gt;0){</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; G=
+MyCompositeCall(In)(f);//</span><span style='line-height:150%;font-family:宋体'>其他</span><span
+lang=EN-US style='line-height:150%'>composite</span><span style='line-height:
+150%;font-family:宋体'>调用</span><span style='line-height:150%'> </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp; else</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (G,G1)=MyOperatorx(In,In1)//</span><span
+style='line-height:150%;font-family:宋体'>内置</span><span lang=EN-US
+style='line-height:150%'>operator</span><span style='line-height:150%;
+font-family:宋体'>定义</span><span style='line-height:150%'> </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; work</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; G[0].x
+= x+In[0].x+In1[0];</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x
++= 1;</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; window</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In
+sliding(3,2);</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; G
+tumbling(1);</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; };&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp; //</span><span
+style='line-height:150%;font-family:宋体'>在非</span><span lang=EN-US
+style='line-height:150%'>pipeline</span><span style='line-height:150%;
+font-family:宋体'>和</span><span lang=EN-US style='line-height:150%'>splitjion</span><span
+style='line-height:150%;font-family:宋体'>结构中不允许出现循环控制语句内含有</span><span
+lang=EN-US style='line-height:150%'>composite</span><span style='line-height:
+150%;font-family:宋体'>调用语句，只允许出现普通语句</span><span style='line-height:150%'> </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp; f=100000.0; </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp; for(i=1;i&lt;3;i++)</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; f
++= 3;</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //</span><span
+style='line-height:150%;font-family:宋体'>关于</span><span lang=EN-US
+style='line-height:150%'>pipeline </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp; G1=pipeline(G) </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp; { </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //</span><span
+style='line-height:150%;font-family:宋体'>普通</span><span lang=EN-US
+style='line-height:150%'>C</span><span style='line-height:150%;font-family:
+宋体'>语句</span><span style='line-height:150%'> </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int
+a,b;</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x=(4+y)/2;</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a
+=3;</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b
+=5;</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(i=0;i&lt;10;i++)//</span><span
+style='line-height:150%;font-family:宋体'>循环控制可以出现在</span><span lang=EN-US
+style='line-height:150%'>pipeline</span><span style='line-height:150%;
+font-family:宋体'>结构中</span><span style='line-height:150%'> </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(x&gt;0)//</span><span
+style='line-height:150%;font-family:宋体'>条件控制</span><span style='line-height:
+150%'> </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add
+MyCompositeCall(realparam[i]);// composite-call</span><span style='line-height:
+150%;font-family:宋体'>必须是单输入单输出</span><span style='line-height:150%'> </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else
+</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add
+MyCompositeCall(realparam[i]); </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add
+MyCompositeCall(realparam); </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp; };</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp; //splitjion </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp; G3=splitjoin(G) </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp; { </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int
+t=12315;</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; split
+duplicate(); &nbsp;</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(i=0;i&lt;10;i++)//</span><span
+style='line-height:150%;font-family:宋体'>循环控制可以出现在</span><span lang=EN-US
+style='line-height:150%'>pipeline</span><span style='line-height:150%;
+font-family:宋体'>结构中</span><span style='line-height:150%'> </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(t&gt;0)//</span><span
+style='line-height:150%;font-family:宋体'>条件控制</span><span style='line-height:
+150%'> </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add
+MyCompositeCall(realparam[i]);// composite-call</span><span style='line-height:
+150%;font-family:宋体'>必须是单输入单输出</span><span style='line-height:150%'> </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else
+</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add
+MyCompositeCall(realparam[i]); </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add
+MyCompositeCall(realparam); </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; join
+roundrobin(); </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>&nbsp;&nbsp; }; </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;line-height:150%'><span
+lang=EN-US style='line-height:150%'>}</span></p>
+
+</div>
+
+<b><span lang=EN-US style='font-size:14.0pt;line-height:150%;font-family:"Calibri",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span></b>
+
+<div class=WordSection3 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

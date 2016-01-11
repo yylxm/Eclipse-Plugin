@@ -1,0 +1,111 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"页眉 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	layout-grid-mode:char;
+	border:none;
+	padding:0cm;
+	font-size:9.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"页脚 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	layout-grid-mode:char;
+	font-size:9.0pt;
+	font-family:"Calibri",sans-serif;}
+span.Char
+	{mso-style-name:"页眉 Char";
+	mso-style-link:页眉;}
+span.Char0
+	{mso-style-name:"页脚 Char";
+	mso-style-link:页脚;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	layout-grid:15.6pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=ZH-CN style='text-justify-trim:punctuation'>
+
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:16.0pt'>CDT</span></b><b><span
+style='font-size:16.0pt;font-family:宋体'>基本框架</span></b></p>
+
+<p class=MsoNormal style='text-indent:24.1pt;line-height:150%'><span
+style='font-family:宋体'>数据流可视化工具在界面上分为以下几个模块，分别是代码编辑部分，工程视图部分，工具视图部分，菜单视图部分以及结果及错误显示视图。在功能上分为流语言文法及错误分析模块，性能分析模块，</span><span
+lang=EN-US>SDF</span><span style='font-family:宋体'>流图显示模块，参数设置模块，流语言工程支撑模块。插件编程工具的基本框架如下图所示。按照以上分类：代码编辑框负责流程序代码的打开，编辑，在该部分还会给出一些传统的流程序运行过程在编译阶段才会给出的错误提示。编译部分集成了流程序编译器和</span><span
+lang=EN-US>gcc</span><span style='font-family:宋体'>预处理器，在代码编辑框中编写的流程序代码会先经过</span><span
+lang=EN-US>gcc</span><span style='font-family:宋体'>预处理器的预处理之后在进行编译，这是因为在流程序中支持部分</span><span
+lang=EN-US>C</span><span style='font-family:宋体'>语言的库函数，这些库函数的定义需要用到</span><span
+lang=EN-US>C</span><span style='font-family:宋体'>语言的头文件，因此需要调用</span><span
+lang=EN-US>gcc</span><span style='font-family:宋体'>预处理器将头文件展开。</span></p>
+
+<p class=MsoNormal style='text-indent:24.1pt;line-height:150%'><span
+style='font-family:宋体'>在编译阶段过后，程序员可以调用</span><span lang=EN-US>Graphviz</span><span
+style='font-family:宋体'>脚本绘图工具将编译阶段生成</span><span lang=EN-US>dot</span><span
+style='font-family:宋体'>脚本语言绘制成静态同步数据流图</span><span lang=EN-US>(SDF)</span><span
+style='font-family:宋体'>，</span><span lang=EN-US>SDF</span><span
+style='font-family:宋体'>给出了整个程序的结构以及任务划分和调度之后的</span><span lang=EN-US>actor</span><span
+style='font-family:宋体'>分配情况，有便于程序员可视化的验证程序的正确性和划分算法的性能。编译阶段生成的</span><span
+lang=EN-US>C++</span><span style='font-family:宋体'>代码要得到输出结果需要在不同的后端执行，由于流程序编译器支持生成针对</span><span
+lang=EN-US>X86</span><span style='font-family:宋体'>、</span><span lang=EN-US>GPU</span><span
+style='font-family:宋体'>与集群这三种后端的代码，因此，对于生成后的代码执行时，需要对不同的后端设定不同的执行方案，例如集群后端的代码需要把生成代码先复制到各个服务器上，然后运行执行脚本文件。</span></p>
+
+<p class=MsoNormal style='margin-bottom:7.8pt;text-indent:24.1pt;line-height:
+150%'><span style='font-family:宋体'>对于流程序生成代码的调试与普通的</span><span lang=EN-US>C++</span><span
+style='font-family:宋体'>代码不同，流程序的生成代码一般都是多线程的代码，所以针对流程序的代码的调试需要用到</span><span
+lang=EN-US>gdb</span><span style='font-family:宋体'>调试器的多线程调试部分，然后执行生成的可执行文件得到结果，在这一过程中会将错误或结果输出到错误及结果显示框内。由于流程序的性能是衡量数据流优势的关键，流程序性能分析工具就显得格外重要，在流程序代码执行完成程序员可以调用性能分析工具对流程序进行性能分析，性能分析工具可以模拟单核执行，用来得到程序多线程执行的加速比，得到流程序在核间、集群节点间、</span><span
+lang=EN-US>GPU</span><span style='font-family:宋体'>与</span><span lang=EN-US>CPU</span><span
+style='font-family:宋体'>间的通信时间以及</span><span lang=EN-US>actor</span><span
+style='font-family:宋体'>的计算时间，以此来分析流程序执行时的计算、通信以及同步开销。</span></p>
+
+<p class=MsoNormal style='text-indent:52.5pt;line-height:135%'><span
+lang=EN-US><img width=420 height=437
+src="CDT%20Basic%20Frame.files/image001.png"></span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>
